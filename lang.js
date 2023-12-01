@@ -1,10 +1,12 @@
 let fs = require("fs");
 let path = require("path");
 
+// Checks if the result has an error
 let checkError = function(res) {
 	return res.error ? true : false;
 }
 
+// Outputs the error as a string
 let outputError = function(res) {
 	console.log(res.error.asString());
 }

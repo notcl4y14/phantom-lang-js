@@ -2,7 +2,15 @@ let lang = require("./lang");
 
 // The main function
 let main = function() {
-	let filename = "tests/test.pht";
+	let args = process.argv;
+	args.splice(0, 2);
+
+	let filename = args[0];
+	if (!filename) {
+		console.log("Please specify a filename!");
+		return ;
+	}
+	
 	let error = lang.runFile(filename);
 
 	if (error) {

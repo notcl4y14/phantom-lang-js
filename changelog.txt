@@ -9,6 +9,13 @@
 // ---------------------------------------------
 
 // 1/12/2023
+- Added positions to tokens
+- Added sub-functions .left() and .right() to Token.setPos()
+- Added more token types
+	+ Number
+	+ String
+	+ Identifier
+---------
 - Created phantom.bat
 - Created test.pht
 - Added Token.Type
