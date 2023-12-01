@@ -1,0 +1,22 @@
+// ---------------------------------------------
+// Phantom programming language
+// changelog.txt
+// https://github.com/notcl4y14/phantom-lang
+// ---------------------------------------------
+
+// ---------------------------------------------
+// UNDER DEVELOPMENT VERSIONS
+// ---------------------------------------------
+
+// 1/12/2023
+- Initial commit
+- Created files
+	+ main.js
+	+ lang.js
+	+ lexer.js
+	+ position.js
+	+ token.js
+	+ package.json
+	+ error.js
+- Created the "tests" folder
+	+ operators.pht
