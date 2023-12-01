@@ -1,19 +1,23 @@
 let fs = require("fs");
+let path = require("path");
 let lang = {};
 
 lang.Lexer = require("./frontend/lexer");
 
 lang.runFile = function(filename) {
-	// TODO: Get the file data first and then read it
-	let data;
+	let code = "";
 	
+	// I know, this is ugly
 	try {
 		data = fs.readFileSync(filename, { encoding: "utf-8", flag: "r" });
 	} catch (error) {
 		return `File ${filename} does not exist!`;
 	}
 
-	lang.runCode(filename, data);
+	// getting the filename without its path
+	let filenameNoPath = path.basename(filename);
+
+	lang.runCode(filenameNoPath, data);
 	return ;
 }
 

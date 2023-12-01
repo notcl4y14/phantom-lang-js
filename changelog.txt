@@ -9,6 +9,8 @@
 // ---------------------------------------------
 
 // 1/12/2023
+- The error now gets the filename without the path
+---------
 - Added filename to the lexer
 ---------
 - Initial commit
