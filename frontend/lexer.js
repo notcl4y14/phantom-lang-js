@@ -20,7 +20,8 @@ let LexerResult = class {
 }
 
 let Lexer = class {
-	constructor(code) {
+	constructor(filename, code) {
+		this.filename = filename;
 		this.code = code;
 		this.pos = new Position(-1, 0, -1);
 
@@ -61,7 +62,7 @@ let Lexer = class {
 				this.advance();
 				let rightPos = this.pos.clone();
 
-				let error = new Error("<stdin>", {left: leftPos, right: rightPos}, `Undefined character '${char}'`);
+				let error = new Error(this.filename, {left: leftPos, right: rightPos}, `Undefined character '${char}'`);
 				return new LexerResult().failure(error);
 			}
 

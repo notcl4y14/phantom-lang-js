@@ -4,6 +4,7 @@ let lang = {};
 lang.Lexer = require("./frontend/lexer");
 
 lang.runFile = function(filename) {
+	// TODO: Get the file data first and then read it
 	let data;
 	
 	try {
@@ -12,13 +13,13 @@ lang.runFile = function(filename) {
 		return `File ${filename} does not exist!`;
 	}
 
-	lang.runCode(data);
+	lang.runCode(filename, data);
 	return ;
 }
 
-lang.runCode = function(code) {
+lang.runCode = function(filename, code) {
 	// Lexer
-	let lexer = new lang.Lexer(code);
+	let lexer = new lang.Lexer(filename, code);
 	let lexerResult = lexer.lexerize();
 
 	if (lexerResult.error) {

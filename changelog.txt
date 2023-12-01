@@ -9,6 +9,8 @@
 // ---------------------------------------------
 
 // 1/12/2023
+- Added filename to the lexer
+---------
 - Initial commit
 - Created files
 	+ main.js
