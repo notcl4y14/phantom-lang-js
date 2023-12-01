@@ -9,6 +9,20 @@
 // ---------------------------------------------
 
 // 1/12/2023
+- Created phantom.bat
+- Created test.pht
+- Added Token.Type
+- Added more token types
+	+ Parentheses, brackets, braces
+	+ Symbols
+		* Dot
+		* Comma
+		* Colon
+		* Semicolon
+		* Ampersand
+		* Pipe
+- Token.value now is null by default
+---------
 - The error now gets the filename without the path
 ---------
 - Added filename to the lexer

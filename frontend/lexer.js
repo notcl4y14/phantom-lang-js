@@ -83,7 +83,36 @@ let Lexer = class {
 		if ((" \t\r\n").includes(char)) {
 			// Skip
 		} else if (("+-*/%").includes(char)) {
-			return new Token("operator", char);
+			return new Token(Token.Type.Operator, char);
+
+		} else if (("()").includes(char)) {
+			return new Token(Token.Type.Parenthesis, char);
+
+		} else if (("[]").includes(char)) {
+			return new Token(Token.Type.Bracket, char);
+
+		} else if (("{}").includes(char)) {
+			return new Token(Token.Type.Brace, char);
+
+		} else if ((".,:;&|").includes(char)) {
+
+			if (char == ".")
+				return new Token(Token.Type.Dot);
+
+			else if (char == ",")
+				return new Token(Token.Type.Comma);
+
+			else if (char == ":")
+				return new Token(Token.Type.Colon);
+
+			else if (char == ";")
+				return new Token(Token.Type.Semicolon);
+
+			else if (char == "&")
+				return new Token(Token.Type.Ampersand);
+
+			else if (char == "|")
+				return new Token(Token.Type.Pipe);
 		}
 
 		// Return nothing

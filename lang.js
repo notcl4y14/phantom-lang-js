@@ -1,23 +1,33 @@
 let fs = require("fs");
 let path = require("path");
-let lang = {};
 
+let checkError = function(res) {
+	return res.error ? true : false;
+}
+
+let outputError = function(res) {
+	console.log(res.error.asString());
+}
+
+// -------------------------------------------------------------------------------
+let lang = {};
 lang.Lexer = require("./frontend/lexer");
 
 lang.runFile = function(filename) {
-	let code = "";
-	
-	// I know, this is ugly
-	try {
-		data = fs.readFileSync(filename, { encoding: "utf-8", flag: "r" });
-	} catch (error) {
+
+	// https://stackoverflow.com/a/32804614
+	// Checking if the file exists
+	if (!fs.existsSync(filename)) {
 		return `File ${filename} does not exist!`;
 	}
 
-	// getting the filename without its path
+	// Reading the file
+	let code = fs.readFileSync(filename, { encoding: "utf-8", flag: "r" });
+
+	// Getting the filename without its path
 	let filenameNoPath = path.basename(filename);
 
-	lang.runCode(filenameNoPath, data);
+	lang.runCode(filenameNoPath, code);
 	return ;
 }
 
@@ -26,9 +36,8 @@ lang.runCode = function(filename, code) {
 	let lexer = new lang.Lexer(filename, code);
 	let lexerResult = lexer.lexerize();
 
-	if (lexerResult.error) {
-		console.log(lexerResult.error.asString());
-		return ;
+	if (checkError(lexerResult)) {
+		return outputError(lexerResult);
 	}
 
 	console.log(lexerResult.list);
