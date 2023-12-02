@@ -11,7 +11,7 @@ let main = function() {
 		return ;
 	}
 	
-	let error = lang.runFile(filename);
+	let error = lang.runFile(filename, ["--lexer", "--parser"]);
 
 	if (error) {
 		console.log(error);

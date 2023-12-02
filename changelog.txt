@@ -8,6 +8,13 @@
 // UNDER DEVELOPMENT VERSIONS
 // ---------------------------------------------
 
+// 2/12/2023
+- Created parser.js
+- Added arguments
+	+ --lexer - Shows the lexer output
+	+ --parser - Shows the parser output
+- Added the "EOF" token type
+
 // 1/12/2023
 - Added positions to tokens
 - Added sub-functions .left() and .right() to Token.setPos()

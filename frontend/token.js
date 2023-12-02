@@ -15,6 +15,8 @@ let Token = class {
 		Semicolon: "Semicolon",
 		Ampersand: "Ampersand",
 		Pipe: "Pipe",
+
+		EOF: "EOF",
 	}
 
 	constructor(type, value = null) {
@@ -41,7 +43,7 @@ let Token = class {
 		}
 
 		this.leftPos = leftPos;
-		this.rightPos = rightPos;
+		this.rightPos = rightPos || this.leftPos;
 
 		return this;
 	}

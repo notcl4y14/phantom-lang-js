@@ -88,6 +88,8 @@ let Lexer = class {
 			listToken.push(token);
 		}
 
+		listToken.push( new Token(Token.Type.EOF).setPos(this.position.clone()) );
+
 		return new LexerResult().success(listToken);
 	}
 
